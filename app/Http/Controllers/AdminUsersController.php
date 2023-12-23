@@ -7,6 +7,7 @@ use App\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\AddUserRequest;
 class AdminUsersController extends Controller
 {
     /**
@@ -31,12 +32,11 @@ class AdminUsersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AddUserRequest $request)
     {
-         $user = $request->all();
+        $user = $request->all();
         $user['password'] = Hash::make('Admin123');
         User::create($user);
-
         Session::flash('admin_flash', 'User created successfully.');
         return redirect(route('admin-users'));
     }
