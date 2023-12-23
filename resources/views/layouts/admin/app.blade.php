@@ -49,7 +49,10 @@
                     <a
                         href="{{ route('admin-users') }}"
                         class="block px-4 py-2 hover:bg-indigo-800 rounded-md"
-@@ -58,6 +59,7 @@ class="block px-4 py-2 hover:bg-indigo-800 rounded-md"
+                        >All Users</a
+                    >
+                    <a
+                        href="{{ route('admin-users-create') }}"
                         class="block px-4 py-2 hover:bg-indigo-800 rounded-md"
                         >Create User</a
                     >
@@ -57,7 +60,20 @@
                     <a
                         href="{{ route('admin-categories') }}"
                         class="block px-4 py-2 hover:bg-indigo-800 rounded-md"
-@@ -78,6 +80,13 @@ class="block px-4 py-2 hover:bg-indigo-800 rounded-md"
+                        >All Categories</a
+                    >
+                    <a
+                        href="{{ route('admin-categories-create') }}"
+                        class="block px-4 py-2 hover:bg-indigo-800 rounded-md"
+                        >Create Category</a
+                    >
+                    <a
+                        href="{{ route('admin-posts') }}"
+                        class="block px-4 py-2 hover:bg-indigo-800 rounded-md"
+                        >All Posts</a
+                    >
+                    <a
+                        href="{{ route('admin-posts-create') }}"
                         class="block px-4 py-2 hover:bg-indigo-800 rounded-md"
                         >Create Post</a
                     >
