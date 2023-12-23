@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\AddUserRequest;
+use App\Http\Requests\EditUserRequest;
 class AdminUsersController extends Controller
 {
     /**
@@ -54,17 +55,26 @@ class AdminUsersController extends Controller
      */
     public function edit(string $id)
     {
-        //
+         $user = User::find($id);
+        if( $user == null) {
+            Session::flash('admin_flash', 'User does not exist.');
+            return redirect(route('admin-users'));
+        }
+        $roles = Role::all();
+        return view('admin.users.edit', compact('roles', 'user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+     public function update(EditUserRequest $request, string $id)
     {
-        //
+        $user = User::find($id);
+        $input = $request->all();
+        $user->update($input);
+        Session::flash('admin_flash', 'User edited successfully.');
+        return redirect(route('admin-users'));
     }
-
     /**
      * Remove the specified resource from storage.
      */
